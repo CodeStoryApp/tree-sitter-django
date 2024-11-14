@@ -15,6 +15,9 @@
     "description": "Parser for Django templates.",
     "authors": [
       {
+        "name": "William Vandervalk"
+      },
+      {
         "name": "Dominique PERETTI"
       }
     ],
