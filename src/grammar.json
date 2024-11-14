@@ -15,7 +15,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "expression"
         },
         {
           "type": "SYMBOL",
@@ -30,6 +30,10 @@
           "name": "content"
         }
       ]
+    },
+    "_identifier": {
+      "type": "PATTERN",
+      "value": "\\w+"
     },
     "keyword": {
       "type": "TOKEN",
@@ -253,11 +257,7 @@
         }
       ]
     },
-    "_identifier": {
-      "type": "PATTERN",
-      "value": "\\w+"
-    },
-    "_expression": {
+    "expression": {
       "type": "SEQ",
       "members": [
         {
@@ -1518,13 +1518,17 @@
     },
     "content": {
       "type": "PATTERN",
-      "value": "([^\\{]|\\{[^{%#])+"
+      "value": "([^{]|\\{[^{%#])+"
     }
   },
   "extras": [
     {
-      "type": "PATTERN",
-      "value": "\\s"
+      "type": "STRING",
+      "value": " "
+    },
+    {
+      "type": "STRING",
+      "value": "\t"
     }
   ],
   "conflicts": [],

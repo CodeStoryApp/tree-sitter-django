@@ -1,0 +1,117 @@
+==================
+real_world
+==================
+
+<html>
+{% extends "account/base_no_menu.html" %}
+{% block content %}{#RCSut#}
+
+<h3>{% trans "Sign In" %}</h3>
+<hr>
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+{% if ALLOW_EMAIL_SIGNUP %}{#LQvPV#}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+{% endif %}
+<div class="socialaccount_ballot">
+
+    <ul class="socialaccount_providers">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+
+    {% if ALLOW_EMAIL_SIGNUP %}{#a9rjA#}
+    <div class="login-or">{% trans 'or' %}</div>
+    {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
+</html>
+
+---
+
+ (template
+  (content)
+  (unpaired_statement
+    (tag_name)
+    (string))
+  (content)
+  (paired_statement
+    (tag_name)
+    (variable
+      (variable_name))
+    (unpaired_comment)
+    (content)
+    (unpaired_statement
+      (tag_name)
+      (string))
+    (content)
+    (unpaired_statement
+      (tag_name)
+      (keyword)
+      (variable
+        (variable_name)))
+    (content)
+    (paired_statement
+      (tag_name)
+      (variable
+        (variable_name))
+      (content)
+      (paired_statement
+        (tag_name)
+        (variable
+          (variable_name))
+        (unpaired_comment)
+        (content)
+        (unpaired_statement
+          (tag_name)
+          (keyword)
+          (variable
+            (variable_name))
+          (keyword)
+          (variable
+            (variable_name)))
+        (content)
+        (expression
+          (variable
+            (variable_name)))
+        (content)
+        (expression
+          (variable
+            (variable_name)))
+        (content)
+        (unpaired_statement
+          (tag_name))
+        (content)
+        (tag_name)
+        (end_paired_statement))
+      (content)
+      (unpaired_statement
+        (tag_name)
+        (string)
+        (keyword)
+        (variable
+          (variable_name))
+        (string))
+      (content)
+      (paired_statement
+        (tag_name)
+        (variable
+          (variable_name))
+        (unpaired_comment)
+        (content)
+        (unpaired_statement
+          (tag_name)
+          (string))
+        (content)
+        (tag_name)
+        (end_paired_statement))
+      (content)
+      (tag_name)
+      (end_paired_statement))
+    (content)
+    (tag_name)
+    (end_paired_statement))
+  (content))

@@ -7,17 +7,24 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+// https://tree-sitter.github.io/tree-sitter/creating-parsers#the-grammar-dsl
 module.exports = grammar({
   name: "django",
 
   word: ($) => $._identifier,
+
+  // Exclude new lines from default whitespace matching, otherwise the statements preceding lines
+  // are matched as being part of the statement.
+  extras: ($) => [' ', '\t'],
 
   rules: {
     // Root rule - a template consists of repeated nodes
     template: ($) => repeat($._node),
 
     // A node can be an expression {{var}}, statement {%tag%}, comment {#...#}, or plain content
-    _node: ($) => choice($._expression, $._statement, $._comment, $.content),
+    _node: ($) => choice($.expression, $._statement, $._comment, $.content),
+
+    _identifier: ($) => /\w+/,
 
     // Basic building blocks used throughout the grammar
     keyword: ($) =>
@@ -50,10 +57,8 @@ module.exports = grammar({
         repeat(seq("|", $.filter)),
       ),
 
-    _identifier: ($) => /\w+/,
-
     // Expressions
-    _expression: ($) => seq("{{", $.variable, "}}"),
+    expression: ($) => seq("{{", $.variable, "}}"),
 
     // Variables can have optional filters: my_var|upper|lower:"arg"
     variable: ($) => seq($.variable_name, repeat(seq("|", $.filter))),
@@ -225,6 +230,6 @@ module.exports = grammar({
       ),
 
     // All other content
-    content: ($) => /([^\{]|\{[^{%#])+/,
+    content: ($) => /([^{]|\{[^{%#])+/,
   },
 });

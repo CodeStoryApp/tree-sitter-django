@@ -5,7 +5,7 @@
       "camelcase": "Django",
       "scope": "source.django",
       "path": ".",
-      "file-types": null,
+      "file-types": [".html", ".tpl"],
       "injection-regex": "^django$"
     }
   ],
@@ -23,7 +23,7 @@
     }
   },
   "bindings": {
-    "c": false,
+    "c": true,
     "go": false,
     "node": true,
     "python": false,

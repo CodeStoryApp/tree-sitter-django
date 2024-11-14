@@ -379,8 +379,11 @@ for
     (keyword_operator)
     (variable
       (variable_name))
-    (variable
-      (variable_name))
+    (content)
+    (expression
+      (variable
+        (variable_name)))
+    (content)
     (branch_statement
       (tag_name))
     (content)
@@ -481,6 +484,7 @@ ifchanged
     (keyword_operator)
     (variable
       (variable_name))
+    (content)
     (paired_statement
       (tag_name)
       (variable
@@ -488,6 +492,7 @@ ifchanged
       (content)
       (tag_name)
       (end_paired_statement))
+    (content)
     (tag_name)
     (end_paired_statement))
   (content))
@@ -604,6 +609,7 @@ keywords
     (keyword)
     (variable
       (variable_name)))
+  (content)
   (unpaired_statement
     (tag_name)
     (keyword)
@@ -634,19 +640,22 @@ custom
   (content)
   (unpaired_statement
     (tag_name))
+  (content)
   (unpaired_statement
     (tag_name))
   (content)
   (unpaired_statement
-      (tag_name))
+    (tag_name))
+  (content)
   (unpaired_statement
     (tag_name))
   (content)
   (unpaired_statement
-      (tag_name))
+    (tag_name))
+  (content)
   (unpaired_statement
     (tag_name))
   (content)
   (unpaired_statement
-      (tag_name))
+    (tag_name))
   (content))
